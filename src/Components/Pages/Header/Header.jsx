@@ -8,10 +8,11 @@ const Header = () => {
                         <img className="w-[50px]" src="https://www.tripfiction.com/wp-content/uploads/2016/08/1920x1080-brands-amazon-logo.jpg" alt="" />
                   </div>
                   <nav className="h-[80px] hidden md:flex items-center gap-5 pr-8">
-                  <NavLink to='/'>Home</NavLink>
-                  <NavLink to='/about'>About</NavLink>
-                  <NavLink to='/contact'>Contact</NavLink>
-                  <NavLink to='/service'>Service</NavLink>
+                  <NavLink to='/' className={({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'bg-sky-500 text-white p-2 rounded-lg' : '')}>Home</NavLink>
+                  <NavLink to='/about' className={({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'bg-sky-500 text-white p-2 rounded-lg' : '')}>About</NavLink>
+                  <NavLink to='/contact' className={({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'bg-sky-500 text-white p-2 rounded-lg' : '')}>Contact</NavLink>
+                  <NavLink to='/service' className={({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'bg-sky-500 text-white p-2 rounded-lg' : '')}>Service</NavLink>
+                  <NavLink to='/dashboard'  className={({ isActive, isPending }) => (isPending ? 'pending' : isActive ? 'bg-sky-500 text-white p-2 rounded-lg' : '')}>Dashboard</NavLink>
                   </nav>                  
             </div>
       );

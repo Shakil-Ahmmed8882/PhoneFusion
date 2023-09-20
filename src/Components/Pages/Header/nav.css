@@ -1,9 +1,4 @@
-.active{
-      background-color: #000;
-      color: #fff;
+a.active{
       padding: 10px;
       border-radius: 10px;
-}
-nav > *{
-      display: block;
 }
