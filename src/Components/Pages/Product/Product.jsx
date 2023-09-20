@@ -1,9 +1,13 @@
 import PropTypes from 'prop-types';
 import '../Home/home.css'
-import { Link } from 'react-router-dom';
 
 const Product = ({product}) => {
       const {title,description,price,thumbnail,id} = product;
+
+      const handleView = ()=>{
+            
+      }
+
       return (
             <div className='shadow-lg flex flex-col'>
                   <img className='h-52 w-full object-cover object-top' src={thumbnail} alt="" />
@@ -11,7 +15,7 @@ const Product = ({product}) => {
                   <h2 className='text-2xl font-bold'>{title}</h2>
                   <p className='text-gray-500 h-[70px]'>{description}</p>
                   <p className='font-bold justify-end text-[20px]'>${price}</p>
-                  <Link to={`/products/${id}`}><button className='bg-white text-sky-500 rounded-lg'>View details</button></Link>
+                  <button onClick={handleView} className='bg-white text-sky-500 rounded-lg'>View details</button>
                   </div>
             </div>
       );
