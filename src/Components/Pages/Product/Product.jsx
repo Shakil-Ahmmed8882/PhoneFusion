@@ -1,11 +1,18 @@
 import PropTypes from 'prop-types';
 import '../Home/home.css'
+import { useNavigate } from 'react-router-dom';
 
 const Product = ({product}) => {
       const {title,description,price,thumbnail,id} = product;
 
+      const navigate = useNavigate()
       const handleView = ()=>{
-            
+            const isLoggedIn = true;
+            if(isLoggedIn){
+                  navigate(`/products/${id}`)
+            } else{
+                  alert('Please login')
+            }
       }
 
       return (

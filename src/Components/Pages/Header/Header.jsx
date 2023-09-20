@@ -71,7 +71,6 @@ const Header = () => {
         <div className="flex items-center gap-x-3">
         <strong>Login</strong>
         <input type="checkbox" className="toggle toggle-info" checked />
-
         </div>
       </nav>
     </div>
