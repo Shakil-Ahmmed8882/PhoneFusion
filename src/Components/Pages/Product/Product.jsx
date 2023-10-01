@@ -22,7 +22,7 @@ const Product = ({product}) => {
                   <h2 className='text-2xl font-bold'>{title}</h2>
                   <p className='text-gray-500 h-[70px]'>{description}</p>
                   <p className='font-bold justify-end text-[20px]'>${price}</p>
-                  <button onClick={handleView} className='bg-white text-sky-500 rounded-lg'>View details</button>
+                  <button onClick={handleView} className='bg-white text-sky-500 text-left rounded-lg'>View details</button>
                   </div>
             </div>
       );

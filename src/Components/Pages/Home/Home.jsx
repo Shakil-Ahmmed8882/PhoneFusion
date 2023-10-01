@@ -1,6 +1,7 @@
 import { Outlet, useNavigation } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import { Toaster } from "react-hot-toast";
 
 const Home = () => {
   const navigation = useNavigation();
@@ -19,6 +20,7 @@ const Home = () => {
             <Outlet></Outlet>
           )}
         </div>
+        <Toaster/>
       </div>
       <Footer></Footer>
     </div>

@@ -1,7 +1,33 @@
 import { NavLink } from "react-router-dom";
 import "../Header/nav.css";
+import useAuth from "../../../🟢AuthProvider/AuthContext";
+import toast from "react-hot-toast";
+import { useEffect, useState } from "react";
 
 const Header = () => {
+  const { user , logOut} = useAuth();
+  const [isLoggedIn, setIsLoggedIn] = useState(!!user)
+  
+
+
+  useEffect(()=>{
+    setIsLoggedIn(!!user)
+  },[user])
+
+  // funciton for logout handling
+  const handleLogOut = () => {
+    logOut()
+    .then(()=>{
+      setIsLoggedIn(true)
+      toast.success('signed out')
+    })
+    .catch(error =>{
+      toast.error(error)
+    })
+  }
+
+
+
   return (
     <div className="flex shadow-lg py-3 md:py-0 justify-between items-center px-5">
       <div>
@@ -46,7 +72,7 @@ const Header = () => {
           Contact
         </NavLink>
         <NavLink
-          to="/service"
+          to="/register"
           className={({ isActive, isPending }) =>
             isPending
               ? "pending"
@@ -54,24 +80,31 @@ const Header = () => {
               ? "bg-sky-500 text-white p-2 rounded-lg"
               : ""
           }>
-          Service
+          Register
         </NavLink>
-        <NavLink
-          to="/dashboard"
-          className={({ isActive, isPending }) =>
-            isPending
-              ? "pending"
-              : isActive
-              ? "bg-sky-500 text-white p-2 rounded-lg"
-              : ""
-          }>
-          Dashboard
-        </NavLink>
-        {/* Toggler */}
-        <div className="flex items-center gap-x-3">
-        <strong>Login</strong>
-        <input type="checkbox" className="toggle toggle-info" checked />
-        </div>
+        {
+        isLoggedIn &&         <NavLink
+        to="/dashboard"
+        className={({ isActive, isPending }) =>
+          isPending
+            ? "pending"
+            : isActive
+            ? "bg-sky-500 text-white p-2 rounded-lg"
+            : ""
+        }>
+        Dashboard
+      </NavLink>
+        }
+        {/* logout and login */}
+        {isLoggedIn ? (
+          <button className="btn bg-primary text-white" onClick={handleLogOut}>Logout</button>
+        ) : (
+          <NavLink
+            to="/login"
+            className="btn bg-primary text-white">
+            Login
+          </NavLink>
+        )}
       </nav>
     </div>
   );
